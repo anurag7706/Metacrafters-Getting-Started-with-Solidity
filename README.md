@@ -40,9 +40,9 @@ Problem Statement :
 **Code :** 
 
 
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
-contract MyToken {
+       SPDX-License-Identifier: MIT
+       pragma solidity 0.8.18;
+       contract MyToken {
 
     // public variables here
     string public tokenName = "TOKEN";
