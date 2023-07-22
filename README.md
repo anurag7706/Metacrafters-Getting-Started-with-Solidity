@@ -2,7 +2,8 @@
 Getting Started with Solidity
 
 Problem Statement : 
-/*
+
+
        REQUIREMENTS
     1. Your contract will have public variables that store the details about your coin (Token Name, Token Abbrv., Total Supply)
     2. Your contract will have a mapping of addresses to balances (address => uint)
@@ -14,9 +15,9 @@ Problem Statement :
        and from the balance of the “sender”.
     5. Lastly, your burn function should have conditionals to make sure the balance of "sender" is greater than or equal 
        to the amount that is supposed to be burned.
-*/
 
-Steps / Working :
+
+**Steps / Working :**
 
 1. Deployment :
 ![deploy it](https://github.com/anurag7706/Metacrafters-Getting-Started-with-Solidity/assets/75776424/98fccae7-b5b3-4a98-b724-57878ae60f24)
@@ -32,3 +33,33 @@ Steps / Working :
 
 5. Token Burned :
 ![burned token ](https://github.com/anurag7706/Metacrafters-Getting-Started-with-Solidity/assets/75776424/5b74c801-62e8-47d0-ba8d-732d07ec02e1)
+
+
+
+
+**Code :** 
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+contract MyToken {
+
+    // public variables here
+    string public tokenName = "TOKEN";
+    string public tokenAbbrv = "TKN";
+    uint public totalSupply = 0;
+    // mapping variable here
+    mapping(address => uint) public balances;
+    // mint function
+    function mint (address _address, uint _value) public {
+        totalSupply += _value;
+        balances[_address] += _value;
+    }
+    // burn function
+    function burn (address _address, uint _value) public {
+        if(balances[_address]>= _value){
+        totalSupply -= _value;
+        balances[_address] -= _value;
+        }
+    }
+}
